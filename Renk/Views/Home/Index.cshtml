@@ -1,0 +1,48 @@
+﻿
+
+<head>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <marquee direction="rigth">
+        <h1>Renk seçmek için aşağıdaki butona tıklayınız.</h1>
+    </marquee>
+    <div class="text-center">
+        <table class="table active">
+            <tr>
+                <th>Sıra</th>
+                <th>Ad</th>
+                <th>Soyad</th>
+            </tr>
+            @for (var i = 1; i < 10; i++)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>Gizem</td>
+                    <td>Şahin</td>
+                </tr>
+            }
+            <tr>
+                <td>
+                    <p>
+                        <input onclick="MyFunc()" type="button" class="btn btn-success " value="Tıkla" />
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var doc = document.querySelectorAll("tr");
+        function MyFunc() {
+            var val = prompt("Lütfen boyamak istediğiniz sırayı yazınız.");
+            if (val < 1 || val > 9) {
+                alert("Lütfen seçtiğiniz sıranın olduğundan emin olunuz.!");
+            }
+            else {
+                var p = prompt("Lütfen boyamak istediğiniz rengi ingilizce olarak yazınız.");
+                doc[val].bgColor = p;
+            }
+        }
+    </script>
+</body>
